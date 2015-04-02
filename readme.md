@@ -51,6 +51,17 @@ a dependencies part of the form
   }
 ```
 
-and we call ```npm install``` to import the library to our project
+And we call ```npm install``` to import the library to our project. once we run the command, a new folder will be
+created in our project - ```node_modules```. The ```node_modules``` folder holds our dependencies - libraries that
+other people have written that we can use for our application. In the ```node_modules``` folder we can find the
+```express``` folder - of the library we have just installed.
+
+Inside the ```node_modules/express``` folder we will find another ```node_modules``` folder which holds the dependencies
+of the express library itself.
+
+4. lets create the basic express application
+---
+
+
 
 

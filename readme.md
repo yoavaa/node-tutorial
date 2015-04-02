@@ -62,6 +62,37 @@ of the express library itself.
 4. lets create the basic express application
 ---
 
+Lets create a basic web application. Create a file ```app.js``` with the following code
+
+```javascript
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+var server = app.listen(3000, function () {
+
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+
+});
+```
+
+Lets run the application
+
+```
+node app.js
+```
+
+And test it - by opening [http://localhost/3000](http://localhost/3000)
+
+
+
+
 
 
 

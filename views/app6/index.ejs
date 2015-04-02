@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="app.css"/>
+</head>
+<body>
+<h1>Hello World</h1>
+
+<p>Name: <%= name %></p>
+<p>Number of calls: <%= numberOfCalls %></p>
+<ul>
+    <% primes.forEach(function(number) { %>
+    <li><%= number %></li>
+    <% }); %>
+</ul>
+
+
+</body>
+</html>

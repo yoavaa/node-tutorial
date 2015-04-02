@@ -156,13 +156,97 @@ app.get('/admin', function (req, res) {
 add we extract the HTML to the ejs pages ```views/app4/index.ejs``` and ```views/app4/admin.ejs```.
 
 
+8. Add client javascript and CSS files (app5.js)
+----
+
+serving static files with Express is done using the ```express.static``` middleware. We add the following in app.js
+
+```
+app.use(express.static('public'));
+```
+
+And add static files in the public folder of our project. For instance, lets add app.css
+
+```
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color:red
+}
+```
+
+And lets import it from the HTML pages by adding in the header the following -
+
+```
+    <link rel="stylesheet" type="text/css" href="app.css"/>
+```
+
+9. Add client dependencies
+----
+
+Lets add angular and bootstrap to the project
+
+In package.json, we add to the dependencies
+
+```
+    "dependencies": {
+        "express": "~4.8.3",
+        "ejs": "^1.0.0",
+        "bootstrap": "~3.3.4",
+        "angular": "~1.3.7",
+        "angular-route": "~1.3.7",
+        "angular-animate": "~1.3.7",
+        "font-awesome": "~4.3.0"
+    }
+```
+
+10. Lets make the templates dynamic (app6.js)
+----
+
+We pass data to views by adding a second parameter to render.
+
+e.g.
+
+```
+app.get('/admin', function (req, res) {
+    res.render('app4/admin', {
+      // this is a data object passed to the template
+      name: "yoav",
+      numbers: [1,2,4,5]
+    });
+});
+```
+
+to write a single variable in a template we use
 
 
+```
+<p><%= name %></p>
+```
 
+to loop over an array
 
+```
+<% numbers.forEach(function(number) { %>
+    <li><%= number %></li>
+<% }); %>
+```
 
-todo debug
-todo style
+11. Logging
+---
+
+just use ```console.log()``` to log stuff to the console.
+
+12. Debugging
+---
+
+We run node using the --debug-brk parameter
+
+```
+ node --debug-brk app6.js
+```
+
+And open the web page of the debugger [http://127.0.0.1:8080/debug?port=5858](http://127.0.0.1:8080/debug?port=5858)
 
 
 

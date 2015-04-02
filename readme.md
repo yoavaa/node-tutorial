@@ -90,6 +90,49 @@ node app.js
 
 And test it - by opening [http://localhost/3000](http://localhost/3000)
 
+5. lets return a real HTML
+---
+
+lets change the response to a real HTML page
+```
+<html>
+  <head>
+    <title>Hello World</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+  </body>
+</html>
+```
+
+we should replace it in the ```res.send('Hello World!');```
+
+
+6. Using routes
+----
+
+What if we wanna have more pages? How can we support multiple pages in our app?
+Express provides support using the ```get```, ```post```, ```put``` and ```delete``` methods (among others).
+
+We add to our ```app.js``` -
+
+```
+app.get('/admin', function (req, res) {
+    res.send('<html>'+
+        '  <head>'+
+        '    <title>Admin</title>'+
+        '  </head>'+
+        '  <body>'+
+        '      <h1>Hay, you are on the admin page!</h1>'+
+        '  </body>'+
+        '</html>');
+});
+```
+
+
+
+todo debug
+todo style
 
 
 

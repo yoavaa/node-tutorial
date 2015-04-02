@@ -9,7 +9,8 @@
   "author": "yoav abrahami",
   "license": "ISC",
     "dependencies": {
-        "express": "~4.8.3"
+        "express": "~4.8.3",
+        "ejs": "^1.0.0"
     }
 
 }

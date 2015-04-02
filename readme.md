@@ -42,7 +42,7 @@ Answer the different questions. At the end you will get a file called package.js
 3. add Express
 ---
 
-Express is one of the most popular web frameworks for node.js. To add express to the project, we add to the ```package.json``` file
+[Express](http://expressjs.com/) is one of the most popular web frameworks for node.js. To add express to the project, we add to the ```package.json``` file
 a dependencies part of the form
 
 ```
@@ -59,7 +59,7 @@ other people have written that we can use for our application. In the ```node_mo
 Inside the ```node_modules/express``` folder we will find another ```node_modules``` folder which holds the dependencies
 of the express library itself.
 
-4. lets create the basic express application
+4. lets create the basic express application (app.js)
 ---
 
 Lets create a basic web application. Create a file ```app.js``` with the following code
@@ -90,7 +90,7 @@ node app.js
 
 And test it - by opening [http://localhost/3000](http://localhost/3000)
 
-5. lets return a real HTML
+5. lets return a real HTML (app2.js)
 ---
 
 lets change the response to a real HTML page
@@ -108,7 +108,7 @@ lets change the response to a real HTML page
 we should replace it in the ```res.send('Hello World!');```
 
 
-6. Using routes
+6. Using routes (app3.js)
 ----
 
 What if we wanna have more pages? How can we support multiple pages in our app?
@@ -128,6 +128,36 @@ app.get('/admin', function (req, res) {
         '</html>');
 });
 ```
+
+7. using templates for HTML (app4.js)
+---
+
+Having lots of HTML in the app.js file does not appear like a good idea. If is not the best way to manage HTML files
+inside JS files. Express provides us with a different mechanism called templates. We will explore the EJS template engine
+[tutorial](https://scotch.io/tutorials/use-ejs-to-template-your-node-application).
+
+To install EJS, we add to our package.json file the dependency ```"ejs": "^1.0.0",``` and run ```npm install```.
+
+We have to instruct our application to use the template engine and to create views (HTML template files) to use. We change
+our ```app.js``` to have
+
+```
+app.set('view engine', 'ejs');
+
+app.get('/', function (req, res) {
+    res.render('app4/index');
+});
+
+app.get('/admin', function (req, res) {
+    res.render('app4/admin');
+});
+```
+
+add we extract the HTML to the ejs pages ```views/app4/index.ejs``` and ```views/app4/admin.ejs```.
+
+
+
+
 
 
 

@@ -1,0 +1,15 @@
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "example project using node-express",
+  "main": "app.js",
+  "scripts": {
+    "test": "run"
+  },
+  "author": "yoav abrahami",
+  "license": "ISC",
+    "dependencies": {
+        "express": "~4.8.3"
+    }
+
+}

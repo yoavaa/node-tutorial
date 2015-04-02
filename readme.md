@@ -252,6 +252,49 @@ And open the web page of the debugger [http://127.0.0.1:8080/debug?port=5858](ht
 13. Ajax
 ----
 
+To support ajax, we will use jquery. First we add it to the project in package.json.
+
+```
+    "jquery": "~2.1.3"
+```
+
+Then we include it in our admin template
+
+```
+    <script src="jquery/dist/jquery.min.js"></script>
+```
+
+we need also to add support for serving static files from dependencies, from the node_modules folder. We do that using
+
+```
+app.use(express.static('node_modules'));
+```
+
+In the app.js file.
+
+
+Next, we need to add a button and an event handler in the admin page
+e.g.
+
+```
+$(document).ready(function() {
+
+    $("#clear").click(function() {
+        $.post("clear", function() {
+            alert("data was cleared");
+        })
+    });
+});
+```
+
+And we have to implement the ajax call itself in the app.js file
+
+```
+app.post('/clear', function (req, res) {
+    numberOfCalls = 0;
+    console.log("number of calls was cleared");
+});
+```
 
 
 
